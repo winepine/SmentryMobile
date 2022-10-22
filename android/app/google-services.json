@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1009468391663",
+    "project_id": "smentry-eb556",
+    "storage_bucket": "smentry-eb556.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009468391663:android:7e4f8b3171e6cad0051b1a",
+        "android_client_info": {
+          "package_name": "com.javeot.SmentryMobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009468391663-hdls5er7h0m68h3e4qvi8igf0sr9o50q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwxSOrneVhXuUNm5a_HbzxHJbo5wH1zxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009468391663-hdls5er7h0m68h3e4qvi8igf0sr9o50q.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1009468391663-c8bfe8a297pee0ftj1ta0o2ni55g8a7g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.javeot.SmentryMobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
