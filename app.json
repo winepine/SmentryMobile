@@ -18,8 +18,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.javeot.SmentryMobile",
-      "googleServicesFile": "./GoogleService-Info.plist",
-      "useFrameworks": "static"
+      "googleServicesFile": "./GoogleService-Info.plist"
     },
     "android": {
       "adaptiveIcon": {
