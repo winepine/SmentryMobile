@@ -14,7 +14,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.javeot.SmentryMobile",
@@ -36,6 +38,11 @@
       "@react-native-firebase/perf",
       "@react-native-firebase/crashlytics",
       "expo-build-properties"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "47d58d27-890b-4857-9491-ade4353b2ea9"
+      }
+    }
   }
 }

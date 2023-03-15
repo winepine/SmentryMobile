@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { RootSiblingParent } from "react-native-root-siblings";
-
+import { getCities } from "../services/addTodo";
 import {
   StyleSheet,
   Text,
@@ -23,6 +23,7 @@ const LoginScreen = () => {
   const handleLogin = async () => {
     setLoading(true);
     const DbUser = await verifyUserLogin(email, password);
+    await getCities();
     console.log({ DbUser });
     setLoading(false);
     let toastText = "User Not Found.";
