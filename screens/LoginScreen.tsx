@@ -13,9 +13,11 @@ import {
 } from "react-native";
 import Toast from "react-native-root-toast";
 import { verifyUserLogin } from "../services/verifyUserLogin";
+import { useNavigation } from "@react-navigation/native";
 // import { useUser } from "../../contexts/userContext";
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
+  const { navigate } = useNavigation();
   const [loading, setLoading] = useState(false);
   const [toastText, setToastText] = useState("Logged In Successfully!");
   // const { user } = useUser();
@@ -34,6 +36,7 @@ const LoginScreen = () => {
       duration: Toast.durations.LONG,
       backgroundColor: "gray",
     });
+    navigate("Home", {});
   };
   return (
     <RootSiblingParent>
