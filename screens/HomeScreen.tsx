@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableHighlight,
+} from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
+import FirstRoute from "../components/VehiclesScreen";
+//@ts-ignore
 import Ionicons from "react-native-vector-icons/Ionicons";
-const FirstRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "#fff" }]}>
-    <Text>First Tab</Text>
-  </View>
-);
 
 const SecondRoute = () => (
   <View style={[styles.scene, { backgroundColor: "#fff" }]}>
