@@ -1,57 +1,106 @@
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-const FirstRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "#fff" }]}>
-    <Text>Abrar Hameed's Smentry Portal</Text>
-    <TouchableHighlight
-      style={styles.card}
-      //   onPress={onPress}
-      underlayColor="#ebebeb"
-    >
-      <LinearGradient colors={["#00d2ff", "#928DAB"]} style={styles.gradient}>
-        <View>
-          <Text style={styles.title}>{"Honda Civic RS Turbo"}</Text>
-          <Text style={styles.description}>{"Abrar Hameed"}</Text>
-        </View>
-      </LinearGradient>
-    </TouchableHighlight>
-  </View>
-);
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableHighlight,
+  View,
+} from "react-native";
+import CarCard from "./CarCard";
+import { MaterialIcons } from "@expo/vector-icons";
+// import { SearchBar } from "react-native-ios-kit";
+const FirstRoute = () => {
+  return (
+    <View style={[styles.scene, { backgroundColor: "#ffffff" }]}>
+      <Text
+        style={{
+          fontSize: 32,
+          padding: 20,
+          paddingBottom: 10,
+          flexWrap: "wrap",
+          fontWeight: "700",
+        }}
+      >
+        {/* Abrar Hameed's Smentry Portal */}
+        Smentry Home
+      </Text>
+      {/* <TextInput
+        style={styles.input}
+        //   onChangeText={setText}
+        //   value={text}
+        placeholder="Search"
+        placeholderTextColor="#b5b5b5"
+       
+      /> */}
+      <View style={styles.searchSection}>
+        {/* <Icon style={styles.searchIcon} name="ios-search" size={20} color="#000"/> */}
+        <MaterialIcons
+          name="search"
+          size={24}
+          color="#b5b5b5"
+          style={{ marginRight: 10 }}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Search"
+          //   onChangeText={searchString => {
+          //     this.setState({ searchString });
+          //   }}
+          underlineColorAndroid="transparent"
+        />
+      </View>
+      <CarCard
+        plate={"LRD 9041"}
+        car={"Hyundai Sonata"}
+        description={"Basit Saeed"}
+        type={"car"}
+      />
+      <CarCard
+        plate={"FED 841"}
+        car={"Honda Civic RS Turbo"}
+        description={"Abrar Hameed"}
+        type={"car"}
+      />
+      <CarCard
+        plate={"ISD 981"}
+        car={"Suzuki Bolan 1993"}
+        description={"Afaq Jamshaid"}
+        type={"rickshaw"}
+      />
+    </View>
+  );
+};
 const styles = StyleSheet.create({
   scene: {
     flex: 1,
-    alignItems: "center",
+    paddingTop: 60,
+    // alignItems: "center",
     justifyContent: "flex-start",
   },
-  card: {
-    backgroundColor: "#ffffff",
-    borderRadius: 10,
-    width: "90%",
-    marginBottom: 10,
-    marginTop: 15,
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    elevation: 2,
+  searchSection: {
+    // flex: 1,
+    // marginLeft: 10,
+    margin: 20,
+    marginTop: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f1f1f1",
+    borderRadius: 8,
+    paddingLeft: 10,
+    paddingRight: 10,
   },
-  title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 10,
-    color: "white",
-    shadowColor: "#000000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+  searchIcon: {
+    padding: 10,
   },
-  description: {
-    fontSize: 14,
-  },
-  gradient: {
-    padding: 20,
-    width: "100%",
-    borderRadius: 10,
+  input: {
+    flex: 1,
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingLeft: 0,
+    backgroundColor: "#f1f1f1",
+    color: "#424242",
   },
 });
 
