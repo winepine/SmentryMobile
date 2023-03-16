@@ -8,7 +8,15 @@ export default function CustomNavigationStack() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen
+          name="Smentry Home"
+          component={HomeScreen}
+          options={{
+            gestureEnabled: false,
+            headerShown: true,
+            headerLeft: () => <></>,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

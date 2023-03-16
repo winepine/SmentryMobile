@@ -36,7 +36,7 @@ const LoginScreen = () => {
       duration: Toast.durations.LONG,
       backgroundColor: "gray",
     });
-    navigate("Home", {});
+    navigate("Smentry Home", {});
   };
   return (
     <RootSiblingParent>
