@@ -7,7 +7,7 @@ import {
   TouchableHighlight,
 } from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
-import FirstRoute from "../components/VehiclesScreen";
+import FirstRoute from "../components/MainScreen";
 //@ts-ignore
 import Ionicons from "react-native-vector-icons/Ionicons";
 
