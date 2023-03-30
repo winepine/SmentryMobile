@@ -15,9 +15,6 @@ const dummyData = [
   { id: 4, title: "New Vehicle Added! FDA-231" },
   { id: 5, title: "New Vehicle Added! FDA-231" },
   { id: 5, title: "New Vehicle Added! FDA-231" },
-  { id: 5, title: "New Vehicle Added! FDA-231" },
-  { id: 5, title: "New Vehicle Added! FDA-231" },
-  { id: 5, title: "New Vehicle Added! FDA-231" },
 ];
 const FirstRoute = () => (
   <ScrollView>
@@ -46,32 +43,49 @@ const FirstRoute = () => (
           minHeight: 500,
         }}
       >
-        <Text
+        <View
           style={{
-            fontSize: 28,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            // justifyContent: "center",
+            // marginLeft: 10,
             padding: 20,
-            paddingBottom: 10,
-            flexWrap: "wrap",
-            fontWeight: "500",
+            paddingBottom: 20,
+            paddingTop: 30,
           }}
         >
-          Notifications
-        </Text>
+          <Ionicons name="notifications" size={24} color="black" />
+          <Text
+            style={{
+              fontSize: 28,
+              flexWrap: "wrap",
+              fontWeight: "600",
+              marginLeft: 10,
+            }}
+          >
+            Notifications
+          </Text>
+        </View>
         {dummyData.map((item, key) => (
           <TouchableHighlight
             key={key}
             style={{
-              ...styles.card,
-              // height: 50,
-              minHeight: 50,
+              borderRadius: 10,
+              marginBottom: 3,
+
+              shadowColor: "#000000",
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.1,
+              shadowRadius: 2,
+              elevation: 2,
+              minHeight: 60,
               alignItems: "center",
 
               justifyContent: "flex-start",
               width: "94%",
               backgroundColor: "#48BB78",
               flexDirection: "row",
-              // justifyContent: "space-evenly",
-              // alignItems: "center",
               marginLeft: 10,
               marginTop: 2,
               padding: 10,
@@ -80,27 +94,19 @@ const FirstRoute = () => (
             underlayColor="#aaa"
           >
             <View
-              style={
-                {
-                  // flexDirection: "row",
-                  // justifyContent: "space-evenly",
-                  // alignItems: "center",
-                }
-              }
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                marginLeft: 10,
+              }}
             >
-              <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  marginLeft: 10,
-                }}
-              >
-                <Ionicons name={"notifications"} size={18} color={"white"} />
+              <Ionicons name={"information-circle"} size={18} color={"white"} />
+              <View>
                 <Text
                   style={{
                     marginLeft: 15,
-                    fontSize: 14,
+                    fontSize: 16,
                     flexWrap: "wrap",
                     fontWeight: "600",
                     textAlign: "left",
@@ -109,7 +115,15 @@ const FirstRoute = () => (
                   }}
                 >
                   {item.title}
-                  l;asmdl;amdl;amsdl;mal;sdmalsmd;almdl;amsdlamsdl;naklsdnklan
+                </Text>
+                <Text
+                  style={{
+                    marginLeft: 15,
+                    color: "white",
+                    fontWeight: "400",
+                  }}
+                >
+                  2 hours ago
                 </Text>
               </View>
             </View>
@@ -208,6 +222,7 @@ const FirstTwo = () => {
       <TouchableHighlight
         style={{ ...styles.card, backgroundColor: "#3182CE" }}
         //   onPress={onPress}
+        onPress={() => navigate("EntryRequestsScreen", {})}
         underlayColor="#aaa"
       >
         <View

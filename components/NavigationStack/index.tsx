@@ -8,6 +8,7 @@ import { useColorScheme, View } from "react-native";
 import HomeScreen from "../../screens/HomeScreen";
 
 import LoginScreen from "../../screens/LoginScreen";
+import EntryRequestsScreen from "../EntryRequestsScreen";
 import InviteVisitorScreen from "../InviteVisitorScreen.tsx";
 const Stack = createNativeStackNavigator();
 const MyTheme = {
@@ -44,6 +45,16 @@ export default function CustomNavigationStack() {
         <Stack.Screen
           name="Enter Visitor Details"
           component={InviteVisitorScreen}
+          options={{
+            gestureEnabled: true,
+            headerShown: true,
+            header: () => <></>,
+            headerLeft: () => <></>,
+          }}
+        />
+        <Stack.Screen
+          name="EntryRequestsScreen"
+          component={EntryRequestsScreen}
           options={{
             gestureEnabled: true,
             headerShown: true,

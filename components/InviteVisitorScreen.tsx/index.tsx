@@ -1,4 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   Button,
   KeyboardAvoidingView,
@@ -9,6 +10,8 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import InfoPopup from "../InfoPopup";
 
 const InviteVisitorScreen = () => {
   const { navigate } = useNavigation();
@@ -25,6 +28,7 @@ const InviteVisitorScreen = () => {
       >
         Enter Visitor Details
       </Text>
+      <InfoPopup infoText="You can invite visitors to your home by entering their details below." />
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={{ flex: 1 }}
@@ -70,7 +74,7 @@ const InviteVisitorScreen = () => {
         >
           <TouchableOpacity
             style={{
-              backgroundColor: "#4CAF50",
+              backgroundColor: "#4299E1",
               padding: 10,
 
               width: "90%",
@@ -89,9 +93,31 @@ const InviteVisitorScreen = () => {
               Submit
             </Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "#F56565",
+              padding: 10,
+              marginTop: 4,
+              width: "90%",
+              paddingLeft: 25,
+              paddingRight: 25,
+              borderRadius: 6,
+            }}
+            onPress={() => navigate("Smentry Home", {})}
+          >
+            <Text
+              style={{
+                textAlign: "center",
+                color: "white",
+                fontSize: 16,
+              }}
+            >
+              Back
+            </Text>
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
-      <Button title="Back" onPress={() => navigate("Smentry Home", {})} />
+      {/* <Button title="Back" } /> */}
       {/* <Button title="Submit" /> */}
     </View>
   );
@@ -103,6 +129,7 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     justifyContent: "flex-start",
   },
+
   input: {
     width: "90%",
     height: 40,
