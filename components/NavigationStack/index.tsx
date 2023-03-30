@@ -10,6 +10,7 @@ import HomeScreen from "../../screens/HomeScreen";
 import LoginScreen from "../../screens/LoginScreen";
 import EntryRequestsScreen from "../EntryRequestsScreen";
 import InviteVisitorScreen from "../InviteVisitorScreen.tsx";
+import ManageStaff from "../ManageStaff";
 const Stack = createNativeStackNavigator();
 const MyTheme = {
   ...DefaultTheme,
@@ -55,6 +56,16 @@ export default function CustomNavigationStack() {
         <Stack.Screen
           name="EntryRequestsScreen"
           component={EntryRequestsScreen}
+          options={{
+            gestureEnabled: true,
+            headerShown: true,
+            header: () => <></>,
+            headerLeft: () => <></>,
+          }}
+        />
+        <Stack.Screen
+          name="ManageStaffScreen"
+          component={ManageStaff}
           options={{
             gestureEnabled: true,
             headerShown: true,
