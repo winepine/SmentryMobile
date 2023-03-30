@@ -1,22 +1,126 @@
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
-
+import { useNavigation } from "@react-navigation/native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View,
+  ScrollView,
+} from "react-native";
+const dummyData = [
+  { id: 1, title: "Lulli Entered Without Permission" },
+  { id: 2, title: "Delivery Request Sent To Guard" },
+  { id: 3, title: "New Vehicle Added! FDA-231" },
+  { id: 4, title: "New Vehicle Added! FDA-231" },
+  { id: 5, title: "New Vehicle Added! FDA-231" },
+  { id: 5, title: "New Vehicle Added! FDA-231" },
+  { id: 5, title: "New Vehicle Added! FDA-231" },
+  { id: 5, title: "New Vehicle Added! FDA-231" },
+  { id: 5, title: "New Vehicle Added! FDA-231" },
+];
 const FirstRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "#ffffff" }]}>
-    <Text
-      style={{
-        fontSize: 32,
-        padding: 20,
-        paddingBottom: 10,
-        flexWrap: "wrap",
-        fontWeight: "700",
-      }}
+  <ScrollView>
+    <View
+      style={[styles.scene, { backgroundColor: "#E6E6EA", paddingBottom: 10 }]}
     >
-      Smentry Home
-    </Text>
-    <FirstTwo />
-    <SecondTwo />
-    <LastOne />
-  </View>
+      <Text
+        style={{
+          fontSize: 32,
+          padding: 20,
+          paddingBottom: 10,
+          flexWrap: "wrap",
+          fontWeight: "700",
+        }}
+      >
+        Smentry Home
+      </Text>
+      <FirstTwo />
+      <SecondTwo />
+      <LastOne />
+      <View
+        style={{
+          backgroundColor: "#fafafa",
+          marginTop: 10,
+          borderRadius: 20,
+          minHeight: 500,
+        }}
+      >
+        <Text
+          style={{
+            fontSize: 28,
+            padding: 20,
+            paddingBottom: 10,
+            flexWrap: "wrap",
+            fontWeight: "500",
+          }}
+        >
+          Notifications
+        </Text>
+        {dummyData.map((item, key) => (
+          <TouchableHighlight
+            key={key}
+            style={{
+              ...styles.card,
+              // height: 50,
+              minHeight: 50,
+              alignItems: "center",
+
+              justifyContent: "flex-start",
+              width: "94%",
+              backgroundColor: "#48BB78",
+              flexDirection: "row",
+              // justifyContent: "space-evenly",
+              // alignItems: "center",
+              marginLeft: 10,
+              marginTop: 2,
+              padding: 10,
+            }}
+            //   onPress={onPress}
+            underlayColor="#aaa"
+          >
+            <View
+              style={
+                {
+                  // flexDirection: "row",
+                  // justifyContent: "space-evenly",
+                  // alignItems: "center",
+                }
+              }
+            >
+              <View
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                  marginLeft: 10,
+                }}
+              >
+                <Ionicons name={"notifications"} size={18} color={"white"} />
+                <Text
+                  style={{
+                    marginLeft: 15,
+                    fontSize: 14,
+                    flexWrap: "wrap",
+                    fontWeight: "600",
+                    textAlign: "left",
+                    color: "white",
+                    maxWidth: 280,
+                  }}
+                >
+                  {item.title}
+                  l;asmdl;amdl;amsdl;mal;sdmalsmd;almdl;amsdlamsdl;naklsdnklan
+                </Text>
+              </View>
+            </View>
+          </TouchableHighlight>
+          //   <View key={item.id} style={{ padding: 10 }}>
+          //     <Text>{item.title}</Text>
+          //   </View>
+        ))}
+      </View>
+    </View>
+  </ScrollView>
 );
 const LastOne = () => (
   <View
@@ -30,7 +134,7 @@ const LastOne = () => (
     }}
   >
     <TouchableHighlight
-      style={{ ...styles.card, width: "94%", backgroundColor: "#FF7f7f" }}
+      style={{ ...styles.card, width: "94%", backgroundColor: "#E53E3E" }}
       //   onPress={onPress}
       underlayColor="#aaa"
     >
@@ -41,85 +145,98 @@ const LastOne = () => (
           alignItems: "center",
         }}
       >
-        <View>
+        <View style={styles.flexCenterIcons}>
+          <Ionicons name={"alert-circle"} size={24} color={"white"} />
+
           <Text
             style={{
-              fontSize: 20,
-              fontWeight: "800",
+              fontSize: 18,
+              fontWeight: "600",
               textAlign: "center",
+              color: "white",
             }}
           >
-            SOS Bitch
+            Alert SOS
           </Text>
         </View>
       </View>
     </TouchableHighlight>
   </View>
 );
-const FirstTwo = () => (
-  <View
-    style={{
-      flexDirection: "row",
-      justifyContent: "space-evenly",
-      alignItems: "center",
-      //   height: 100,
-      marginTop: 15,
-      marginHorizontal: 5,
-    }}
-  >
-    <TouchableHighlight
-      style={styles.card}
-      //   onPress={onPress}
-      underlayColor="#aaa"
+const FirstTwo = () => {
+  const { navigate } = useNavigation();
+
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        //   height: 100,
+        marginTop: 15,
+        marginHorizontal: 5,
+      }}
     >
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-evenly",
-          alignItems: "center",
-        }}
+      <TouchableHighlight
+        style={{ ...styles.card, backgroundColor: "#38A169" }}
+        onPress={() => navigate("Enter Visitor Details", {})}
+        underlayColor="#aaa"
       >
-        <View>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: "800",
-              textAlign: "center",
-            }}
-          >
-            Invite Visitors
-          </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.flexCenterIcons}>
+            <Ionicons name={"add-circle"} size={24} color={"white"} />
+
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: "600",
+                textAlign: "center",
+                color: "white",
+              }}
+            >
+              Invite Visitors
+            </Text>
+          </View>
         </View>
-      </View>
-    </TouchableHighlight>
-    <TouchableHighlight
-      style={styles.card}
-      //   onPress={onPress}
-      underlayColor="#aaa"
-    >
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
+      </TouchableHighlight>
+      <TouchableHighlight
+        style={{ ...styles.card, backgroundColor: "#3182CE" }}
+        //   onPress={onPress}
+        underlayColor="#aaa"
       >
-        <View>
-          <Text
-            style={{
-              fontSize: 20,
-              fontWeight: "800",
-              alignItems: "center",
-              textAlign: "center",
-            }}
-          >
-            Entry Requests
-          </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <View style={styles.flexCenterIcons}>
+            <Ionicons name={"enter"} size={24} color={"white"} />
+
+            <Text
+              style={{
+                fontSize: 18,
+                fontWeight: "600",
+                alignItems: "center",
+                textAlign: "center",
+                color: "white",
+              }}
+            >
+              Entry Requests
+            </Text>
+          </View>
         </View>
-      </View>
-    </TouchableHighlight>
-  </View>
-);
+      </TouchableHighlight>
+    </View>
+  );
+};
 const SecondTwo = () => (
   <View
     style={{
@@ -132,7 +249,7 @@ const SecondTwo = () => (
     }}
   >
     <TouchableHighlight
-      style={styles.card}
+      style={{ ...styles.card, backgroundColor: "#4299E1" }}
       //   onPress={onPress}
       underlayColor="#aaa"
     >
@@ -143,11 +260,13 @@ const SecondTwo = () => (
           alignItems: "center",
         }}
       >
-        <View>
+        <View style={styles.flexCenterIcons}>
+          <Ionicons name={"people"} size={24} color={"white"} />
           <Text
             style={{
-              fontSize: 20,
-              fontWeight: "800",
+              fontSize: 18,
+              fontWeight: "600",
+              color: "#fff",
             }}
           >
             Manage Staff
@@ -156,7 +275,7 @@ const SecondTwo = () => (
       </View>
     </TouchableHighlight>
     <TouchableHighlight
-      style={styles.card}
+      style={{ ...styles.card, backgroundColor: "#48BB78" }}
       //   onPress={onPress}
       underlayColor="#aaa"
     >
@@ -167,12 +286,15 @@ const SecondTwo = () => (
           alignItems: "center",
         }}
       >
-        <View>
+        <View style={styles.flexCenterIcons}>
+          <Ionicons name={"git-pull-request"} size={24} color={"white"} />
+
           <Text
             style={{
-              fontSize: 20,
-              fontWeight: "800",
+              fontSize: 18,
+              fontWeight: "600",
               textAlign: "center",
+              color: "white",
             }}
           >
             Delivery Requests
@@ -190,7 +312,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   card: {
-    backgroundColor: "#ccc",
     borderRadius: 10,
     alignItems: "center",
     textAlign: "center",
@@ -206,6 +327,15 @@ const styles = StyleSheet.create({
     padding: 20,
     height: 100,
     // marginLeft: 5,
+  },
+  logo: {
+    width: 100,
+    height: 70,
+    // opacity: 0.7,
+  },
+  flexCenterIcons: {
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 export default FirstRoute;
