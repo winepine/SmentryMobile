@@ -10,16 +10,41 @@ import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import FirstRoute from "../components/MainScreen";
 //@ts-ignore
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { Divider } from "react-native-paper";
 
 const SecondRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "#fff" }]}>
-    <Text>Second Tab</Text>
+  <View
+    style={[styles.scene, { backgroundColor: "#E6E6EA", paddingBottom: 10 }]}
+  >
+    <Text
+      style={{
+        fontSize: 32,
+        padding: 20,
+        paddingBottom: 10,
+        flexWrap: "wrap",
+        fontWeight: "700",
+      }}
+    >
+      Profile
+    </Text>
   </View>
 );
 
 const ThirdRoute = () => (
-  <View style={[styles.scene, { backgroundColor: "#fff" }]}>
-    <Text>Settings</Text>
+  <View
+    style={[styles.scene, { backgroundColor: "#E6E6EA", paddingBottom: 10 }]}
+  >
+    <Text
+      style={{
+        fontSize: 32,
+        padding: 20,
+        paddingBottom: 10,
+        flexWrap: "wrap",
+        fontWeight: "700",
+      }}
+    >
+      Settings
+    </Text>
   </View>
 );
 
@@ -88,8 +113,9 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   scene: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    paddingTop: 60,
+    // alignItems: "center",
+    justifyContent: "flex-start",
   },
 });
 
