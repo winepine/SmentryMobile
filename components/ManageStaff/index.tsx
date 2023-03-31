@@ -16,7 +16,11 @@ const ManageStaff = () => {
           alignItems: "center",
         }}
       >
-        <SButton title="Add Staff" color={defaultGreen} />
+        <SButton
+          title="Add Staff"
+          color={defaultGreen}
+          route="AddStaffScreen"
+        />
       </View>
       <View
         style={{

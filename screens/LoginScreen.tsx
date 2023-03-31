@@ -23,6 +23,8 @@ const LoginScreen = () => {
   // const { user } = useUser();
   const [password, setPassword] = useState("");
   const handleLogin = async () => {
+    navigate("Smentry Home", {});
+    return;
     setLoading(true);
     const DbUser = await verifyUserLogin(email, password);
     await getCities();
@@ -36,7 +38,6 @@ const LoginScreen = () => {
       duration: Toast.durations.LONG,
       backgroundColor: "gray",
     });
-    navigate("Smentry Home", {});
   };
   return (
     <RootSiblingParent>

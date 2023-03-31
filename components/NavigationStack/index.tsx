@@ -8,9 +8,12 @@ import { useColorScheme, View } from "react-native";
 import HomeScreen from "../../screens/HomeScreen";
 
 import LoginScreen from "../../screens/LoginScreen";
+import DeliveryRequests from "../DeliveryRequests";
+import AddDeliveryForm from "../DeliveryRequests/AddDeliveryForm";
 import EntryRequestsScreen from "../EntryRequestsScreen";
 import InviteVisitorScreen from "../InviteVisitorScreen.tsx";
 import ManageStaff from "../ManageStaff";
+import AddStaffForm from "../ManageStaff/AddStaffForm";
 const Stack = createNativeStackNavigator();
 const MyTheme = {
   ...DefaultTheme,
@@ -66,6 +69,36 @@ export default function CustomNavigationStack() {
         <Stack.Screen
           name="ManageStaffScreen"
           component={ManageStaff}
+          options={{
+            gestureEnabled: true,
+            headerShown: true,
+            header: () => <></>,
+            headerLeft: () => <></>,
+          }}
+        />
+        <Stack.Screen
+          name="DeliveryRequestsScreen"
+          component={DeliveryRequests}
+          options={{
+            gestureEnabled: true,
+            headerShown: true,
+            header: () => <></>,
+            headerLeft: () => <></>,
+          }}
+        />
+        <Stack.Screen
+          name="AddDeliveryScreen"
+          component={AddDeliveryForm}
+          options={{
+            gestureEnabled: true,
+            headerShown: true,
+            header: () => <></>,
+            headerLeft: () => <></>,
+          }}
+        />
+        <Stack.Screen
+          name="AddStaffScreen"
+          component={AddStaffForm}
           options={{
             gestureEnabled: true,
             headerShown: true,

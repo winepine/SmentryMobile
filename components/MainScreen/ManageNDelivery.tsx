@@ -45,6 +45,7 @@ const ManageNDelivery = () => {
       <TouchableHighlight
         style={{ ...styles.card, backgroundColor: "#3182CE" }}
         //   onPress={onPress}
+        onPress={() => navigate("DeliveryRequestsScreen", {})}
         underlayColor="#aaa"
       >
         <View

@@ -1,6 +1,9 @@
-import { Text, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { Text, TouchableOpacity, View } from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-const SButton = ({ title, color }: any) => {
+const SButton = ({ title, color, route }: any) => {
+  const { navigate } = useNavigation();
   return (
     <TouchableOpacity
       style={{
@@ -8,21 +11,34 @@ const SButton = ({ title, color }: any) => {
         padding: 10,
         marginTop: 4,
         width: "90%",
+        height: 50,
+        justifyContent: "center",
         paddingLeft: 25,
         paddingRight: 25,
         borderRadius: 6,
       }}
-      //   onPress={() => navigate("Smentry Home", {})}
+      onPress={() => navigate(route, {})}
     >
-      <Text
+      <View
         style={{
-          textAlign: "center",
-          color: "white",
-          fontSize: 16,
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "row",
         }}
       >
-        {title}
-      </Text>
+        <Ionicons name="add-circle" size={24} color="white" />
+
+        <Text
+          style={{
+            textAlign: "center",
+            color: "white",
+            fontSize: 16,
+            marginLeft: 10,
+          }}
+        >
+          {title}
+        </Text>
+      </View>
     </TouchableOpacity>
   );
 };

@@ -5,12 +5,16 @@ import {
   StyleSheet,
   Dimensions,
   TouchableHighlight,
+  Button,
 } from "react-native";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import FirstRoute from "../components/MainScreen";
 //@ts-ignore
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Divider } from "react-native-paper";
+import CarCard from "../components/VehiclesScreen/CarCard";
+import { useNavigation } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 
 const SecondRoute = () => (
   <View
@@ -27,26 +31,75 @@ const SecondRoute = () => (
     >
       Profile
     </Text>
+    <View
+      style={{
+        marginTop: 20,
+      }}
+    >
+      <CarCard
+        plate="FAD-123"
+        description="Basit Saeed"
+        car="Honda Sonata"
+        type="car"
+      />
+      <CarCard
+        plate="FAD-123"
+        description="Abrar Hameed"
+        car="Hyundai Civic"
+        type="car"
+      />
+      <CarCard
+        plate="FAD-123"
+        description="Afaq Hameed"
+        car="Chingchi"
+        type="rickshaw"
+      />
+      <TouchableHighlight
+        style={styles.card}
+        //   onPress={onPress}
+        underlayColor="#ebebeb"
+      >
+        <LinearGradient
+          colors={["#68D391", "#48BB78", "#2F855A"]}
+          style={styles.gradient}
+        >
+          <View
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Ionicons name="add-circle" size={24} color="white" />
+
+            <Text style={styles.title}>{"Add Vehicle"}</Text>
+          </View>
+        </LinearGradient>
+      </TouchableHighlight>
+    </View>
   </View>
 );
 
-const ThirdRoute = () => (
-  <View
-    style={[styles.scene, { backgroundColor: "#E6E6EA", paddingBottom: 10 }]}
-  >
-    <Text
-      style={{
-        fontSize: 32,
-        padding: 20,
-        paddingBottom: 10,
-        flexWrap: "wrap",
-        fontWeight: "700",
-      }}
+const ThirdRoute = () => {
+  const { navigate } = useNavigation();
+  return (
+    <View
+      style={[styles.scene, { backgroundColor: "#E6E6EA", paddingBottom: 10 }]}
     >
-      Settings
-    </Text>
-  </View>
-);
+      <Text
+        style={{
+          fontSize: 32,
+          padding: 20,
+          paddingBottom: 10,
+          flexWrap: "wrap",
+          fontWeight: "700",
+        }}
+      >
+        Settings
+      </Text>
+      <Button title="Logout" onPress={() => navigate("Login", {})} />
+    </View>
+  );
+};
 
 const renderScene = SceneMap({
   first: FirstRoute,
@@ -116,6 +169,45 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     // alignItems: "center",
     justifyContent: "flex-start",
+  },
+  card: {
+    backgroundColor: "#ffffff",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginLeft: "5%",
+    width: "90%",
+    marginBottom: 10,
+    marginTop: 0,
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+    elevation: 2,
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: "bold",
+    marginBottom: 0,
+    color: "#fafafa",
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+  },
+  description: {
+    fontSize: 14,
+    color: "#fafafa",
+  },
+  gradient: {
+    padding: 20,
+    width: "100%",
+    borderRadius: 10,
+  },
+  logo: {
+    width: 100,
+    height: 70,
+    opacity: 0.7,
   },
 });
 
