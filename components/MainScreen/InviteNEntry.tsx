@@ -1,10 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { useHouseDetails } from "../../contexts/useHouseData";
 
 const InviteNEntry = () => {
   const { navigate } = useNavigation();
-
+  const { house } = useHouseDetails();
+  console.log({ house });
   return (
     <View
       style={{

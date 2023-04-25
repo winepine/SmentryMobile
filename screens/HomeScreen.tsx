@@ -115,7 +115,7 @@ const renderTabBar = (props: any) => (
       backgroundColor: "white",
       height: "10%",
       borderTopColor: "#f0f0f0",
-      borderWidth: "1px",
+      borderWidth: 1,
     }}
     labelStyle={{ fontSize: 14 }}
     activeColor="black"

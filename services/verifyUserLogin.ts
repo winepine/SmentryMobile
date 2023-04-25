@@ -1,6 +1,6 @@
-// import firestore from "@react-native-firebase/firestore";
+import firestore from "@react-native-firebase/firestore";
 const verifyUserLogin = async (email: string, password: string) => {
-  return null;
+  // return null;
   const housesRef = firestore().collection("houses");
   let users: any[] = [];
   const docResponse = await (

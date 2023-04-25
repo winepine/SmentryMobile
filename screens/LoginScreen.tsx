@@ -15,7 +15,10 @@ import Toast from "react-native-root-toast";
 import { verifyUserLogin } from "../services/verifyUserLogin";
 import { useNavigation } from "@react-navigation/native";
 // import { useUser } from "../../contexts/userContext";
+import { useHouseDetails } from "../contexts/useHouseData";
+import { House } from "../types/house";
 const LoginScreen = () => {
+  const { house } = useHouseDetails();
   const [email, setEmail] = useState("");
   const { navigate } = useNavigation();
   const [loading, setLoading] = useState(false);
@@ -23,8 +26,8 @@ const LoginScreen = () => {
   // const { user } = useUser();
   const [password, setPassword] = useState("");
   const handleLogin = async () => {
-    navigate("Smentry Home", {});
-    return;
+    // console.log({ whatever });
+    // return;
     setLoading(true);
     const DbUser = await verifyUserLogin(email, password);
     await getCities();
@@ -32,7 +35,9 @@ const LoginScreen = () => {
     setLoading(false);
     let toastText = "User Not Found.";
     if (DbUser) {
+      house.updateHouse(DbUser as House);
       toastText = "User Logged In Successfully.";
+      navigate("Smentry Home", {});
     }
     Toast.show(toastText, {
       duration: Toast.durations.LONG,
