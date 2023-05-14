@@ -6,7 +6,7 @@ import { useHouseDetails } from "../../contexts/useHouseData";
 const InviteNEntry = () => {
   const { navigate } = useNavigation();
   const { house } = useHouseDetails();
-  console.log({ house });
+  console.log({ inhouse: house });
   return (
     <View
       style={{

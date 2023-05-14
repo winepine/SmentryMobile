@@ -18,7 +18,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useHouseDetails } from "../contexts/useHouseData";
 import { House } from "../types/house";
 const LoginScreen = () => {
-  const { house } = useHouseDetails();
+  const { updateHouse } = useHouseDetails();
   const [email, setEmail] = useState("");
   const { navigate } = useNavigation();
   const [loading, setLoading] = useState(false);
@@ -30,12 +30,12 @@ const LoginScreen = () => {
     // return;
     setLoading(true);
     const DbUser = await verifyUserLogin(email, password);
-    await getCities();
+    // await getCities();
     console.log({ DbUser });
     setLoading(false);
     let toastText = "User Not Found.";
     if (DbUser) {
-      house.updateHouse(DbUser as House);
+      updateHouse(DbUser);
       toastText = "User Logged In Successfully.";
       navigate("Smentry Home", {});
     }
@@ -79,7 +79,6 @@ const LoginScreen = () => {
             placeholder="Email"
             onChangeText={text => setEmail(text)}
             value={email}
-            onFocus={() => console.log("Input field focused")}
           />
 
           <TextInput
@@ -88,13 +87,9 @@ const LoginScreen = () => {
             onChangeText={text => setPassword(text)}
             value={password}
             secureTextEntry
-            onFocus={() => console.log("Input field focused")}
           />
 
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => console.log("Sign in button pressed")}
-          >
+          <TouchableOpacity style={styles.button}>
             {loading ? (
               <ActivityIndicator color="#ffffff" size="small" />
             ) : (

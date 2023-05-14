@@ -15,6 +15,7 @@ import InviteVisitorScreen from "../InviteVisitorScreen.tsx";
 import ManageStaff from "../ManageStaff";
 import AddStaffForm from "../ManageStaff/AddStaffForm";
 import { HouseProvider } from "../../contexts/useHouseData";
+import AddVehicleForm from "../VehiclesScreen/AddVehicle";
 const Stack = createNativeStackNavigator();
 const MyTheme = {
   ...DefaultTheme,
@@ -106,6 +107,16 @@ export default function CustomNavigationStack() {
               headerShown: true,
               header: () => <></>,
               headerLeft: () => <></>,
+            }}
+          />
+          <Stack.Screen
+            name="AddVehicleScreen"
+            component={AddVehicleForm}
+            options={{
+              gestureEnabled: true,
+              headerShown: true,
+              // header: () => <></>,
+              // headerLeft: () => <></>,
             }}
           />
         </Stack.Navigator>

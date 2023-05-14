@@ -18,6 +18,7 @@ const INITAL_STATE: House = {
   residents: [],
   status: "",
   vehicles: [],
+  id: "",
 };
 const useHouse = (initalData = INITAL_STATE) => {
   const [state, dispatch] = useReducer(reducer, initalData);

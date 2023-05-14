@@ -15,69 +15,84 @@ import { Divider } from "react-native-paper";
 import CarCard from "../components/VehiclesScreen/CarCard";
 import { useNavigation } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
+import { useHouseDetails } from "../contexts/useHouseData";
 
-const SecondRoute = () => (
-  <View
-    style={[styles.scene, { backgroundColor: "#E6E6EA", paddingBottom: 10 }]}
-  >
-    <Text
-      style={{
-        fontSize: 32,
-        padding: 20,
-        paddingBottom: 10,
-        flexWrap: "wrap",
-        fontWeight: "700",
-      }}
-    >
-      Profile
-    </Text>
+const SecondRoute = () => {
+  const { navigate } = useNavigation();
+  const { house } = useHouseDetails();
+  console.log(house.vehicles);
+  return (
     <View
-      style={{
-        marginTop: 20,
-      }}
+      style={[styles.scene, { backgroundColor: "#E6E6EA", paddingBottom: 10 }]}
     >
-      <CarCard
-        plate="FAD-123"
-        description="Basit Saeed"
-        car="Honda Sonata"
-        type="car"
-      />
-      <CarCard
-        plate="FAD-123"
-        description="Abrar Hameed"
-        car="Hyundai Civic"
-        type="car"
-      />
-      <CarCard
-        plate="FAD-123"
-        description="Afaq Hameed"
-        car="Chingchi"
-        type="rickshaw"
-      />
-      <TouchableHighlight
-        style={styles.card}
-        //   onPress={onPress}
-        underlayColor="#ebebeb"
+      <Text
+        style={{
+          fontSize: 32,
+          padding: 20,
+          paddingBottom: 10,
+          flexWrap: "wrap",
+          fontWeight: "700",
+        }}
       >
-        <LinearGradient
-          colors={["#68D391", "#48BB78", "#2F855A"]}
-          style={styles.gradient}
+        Profile
+      </Text>
+      <View
+        style={{
+          marginTop: 20,
+        }}
+      >
+        {house.vehicles.map((vehicle, idx) => (
+          <CarCard
+            plate={vehicle.numberplate}
+            description={vehicle.name}
+            car={"Car/Bike"}
+            type={"car"}
+            key={idx}
+          />
+        ))}
+        {/* <CarCard
+          plate="FAD-123"
+          description="Basit Saeed"
+          car="Honda Sonata"
+          type="car"
+        />
+        <CarCard
+          plate="FAD-123"
+          description="Abrar Hameed"
+          car="Hyundai Civic"
+          type="car"
+        />
+        <CarCard
+          plate="FAD-123"
+          description="Afaq Hameed"
+          car="Chingchi"
+          type="rickshaw"
+        /> */}
+        <TouchableHighlight
+          style={styles.card}
+          onPress={() => navigate("AddVehicleScreen", {})}
+          underlayColor="#ebebeb"
         >
-          <View
-            style={{
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+          <LinearGradient
+            colors={["#68D391", "#48BB78", "#2F855A"]}
+            style={styles.gradient}
           >
-            <Ionicons name="add-circle" size={24} color="white" />
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Ionicons name="add-circle" size={24} color="white" />
 
-            <Text style={styles.title}>{"Add Vehicle"}</Text>
-          </View>
-        </LinearGradient>
-      </TouchableHighlight>
+              <Text style={styles.title}>{"Add Vehicle"}</Text>
+            </View>
+          </LinearGradient>
+        </TouchableHighlight>
+      </View>
     </View>
-  </View>
-);
+  );
+};
 
 const ThirdRoute = () => {
   const { navigate } = useNavigation();

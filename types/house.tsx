@@ -8,6 +8,7 @@ export interface House {
   residents: Array<Resident>;
   status: string;
   vehicles: Array<Vehicle>;
+  id: string;
 }
 export type Resident = { name: string; cnic: string };
 export type Vehicle = { name: string; numberplate: string };

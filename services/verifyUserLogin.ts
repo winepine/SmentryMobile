@@ -8,7 +8,7 @@ const verifyUserLogin = async (email: string, password: string) => {
   ).docs;
   if (docResponse.length) {
     if (docResponse[0]?.data().password === password) {
-      return docResponse[0].data();
+      return { ...docResponse[0].data(), id: docResponse[0].id };
     }
   }
   return null;
