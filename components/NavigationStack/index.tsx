@@ -16,6 +16,7 @@ import ManageStaff from "../ManageStaff";
 import AddStaffForm from "../ManageStaff/AddStaffForm";
 import { HouseProvider } from "../../contexts/useHouseData";
 import AddVehicleForm from "../VehiclesScreen/AddVehicle";
+import AddResidentForm from "../AddResident";
 const Stack = createNativeStackNavigator();
 const MyTheme = {
   ...DefaultTheme,
@@ -55,8 +56,8 @@ export default function CustomNavigationStack() {
             options={{
               gestureEnabled: true,
               headerShown: true,
-              header: () => <></>,
-              headerLeft: () => <></>,
+              // header: () => <></>,
+              // headerLeft: () => <></>,
             }}
           />
           <Stack.Screen
@@ -65,8 +66,8 @@ export default function CustomNavigationStack() {
             options={{
               gestureEnabled: true,
               headerShown: true,
-              header: () => <></>,
-              headerLeft: () => <></>,
+              // header: () => <></>,
+              // headerLeft: () => <></>,
             }}
           />
           <Stack.Screen
@@ -75,8 +76,8 @@ export default function CustomNavigationStack() {
             options={{
               gestureEnabled: true,
               headerShown: true,
-              header: () => <></>,
-              headerLeft: () => <></>,
+              // header: () => <></>,
+              // headerLeft: () => <></>,
             }}
           />
           <Stack.Screen
@@ -85,8 +86,8 @@ export default function CustomNavigationStack() {
             options={{
               gestureEnabled: true,
               headerShown: true,
-              header: () => <></>,
-              headerLeft: () => <></>,
+              // header: () => <></>,
+              // headerLeft: () => <></>,
             }}
           />
           <Stack.Screen
@@ -95,8 +96,8 @@ export default function CustomNavigationStack() {
             options={{
               gestureEnabled: true,
               headerShown: true,
-              header: () => <></>,
-              headerLeft: () => <></>,
+              // header: () => <></>,
+              // headerLeft: () => <></>,
             }}
           />
           <Stack.Screen
@@ -105,13 +106,23 @@ export default function CustomNavigationStack() {
             options={{
               gestureEnabled: true,
               headerShown: true,
-              header: () => <></>,
-              headerLeft: () => <></>,
+              // header: () => <></>,
+              // headerLeft: () => <></>,
             }}
           />
           <Stack.Screen
             name="AddVehicleScreen"
             component={AddVehicleForm}
+            options={{
+              gestureEnabled: true,
+              headerShown: true,
+              // header: () => <></>,
+              // headerLeft: () => <></>,
+            }}
+          />
+          <Stack.Screen
+            name="AddResidentScreen"
+            component={AddResidentForm}
             options={{
               gestureEnabled: true,
               headerShown: true,

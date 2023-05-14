@@ -3,8 +3,20 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import InfoPopup from "../InfoPopup";
 import RequestBox from "./RequestBox";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { useEffect, useState } from "react";
+import { useHouseDetails } from "../../contexts/useHouseData";
+import getVisitorRequests from "../../services/getVisitorRequests";
 
 const EntryRequestsScreen = () => {
+  const { house } = useHouseDetails();
+  const [requests, setRequests] = useState([]);
+  const getRequests = async () => {
+    const response = await getVisitorRequests(house.house_no, house.block);
+    setRequests(response);
+  };
+  useEffect(() => {
+    getRequests();
+  }, []);
   return (
     <View style={[styles.scene, { backgroundColor: "#fafafa" }]}>
       <Text
@@ -47,9 +59,17 @@ const EntryRequestsScreen = () => {
           marginTop: 20,
         }}
       >
-        <RequestBox name="Abrar Hameed" description="Plumber/Electrician" />
+        {requests.map((request, index) => (
+          <RequestBox
+            key={index}
+            name={request.name}
+            description={request.additional}
+            object={request}
+          />
+        ))}
+        {/* <RequestBox name="Abrar Hameed" description="Plumber/Electrician" />
         <RequestBox name="Basit Saeed" description="Relative" />
-        <RequestBox name="Afaq Hameed" description="Bathroom Repair" />
+        <RequestBox name="Afaq Hameed" description="Bathroom Repair" /> */}
       </View>
     </View>
   );
@@ -57,7 +77,7 @@ const EntryRequestsScreen = () => {
 const styles = StyleSheet.create({
   scene: {
     flex: 1,
-    paddingTop: 60,
+    // paddingTop: 60,
     // alignItems: "center",
     justifyContent: "flex-start",
   },

@@ -12,9 +12,15 @@ import {
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import InfoPopup from "../InfoPopup";
+import { useState } from "react";
+import { addInvite } from "../../services/addInvite";
+import { useHouseDetails } from "../../contexts/useHouseData";
 
 const InviteVisitorScreen = () => {
   const { navigate } = useNavigation();
+  const [name, setName] = useState("");
+  const [numberplate, setNumberplate] = useState("");
+  const { house } = useHouseDetails();
   return (
     <View style={[styles.scene, { backgroundColor: "#ffffff" }]}>
       <Text
@@ -42,30 +48,20 @@ const InviteVisitorScreen = () => {
           <TextInput
             style={styles.input}
             placeholder="Name"
-            // onChangeText={text => setEmail(text)}
-            // value={email}
+            onChangeText={text => setName(text)}
+            value={name}
             onFocus={() => console.log("Input field focused")}
           />
           <TextInput
             style={styles.input}
             placeholder="Numberplate (Optional)"
-            // onChangeText={text => setEmail(text)}
-            // value={email}
-            onFocus={() => console.log("Input field focused")}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Additional Information (Optional)"
-            // onChangeText={text => setEmail(text)}
-            // value={email}
+            onChangeText={text => setNumberplate(text)}
+            value={numberplate}
             onFocus={() => console.log("Input field focused")}
           />
         </View>
         <View
           style={{
-            //   flex: 1,
-            //   position: "absolute",
-            //   bottom: 16,
             marginVertical: 16,
             justifyContent: "center",
             alignItems: "center",
@@ -73,10 +69,21 @@ const InviteVisitorScreen = () => {
           }}
         >
           <TouchableOpacity
+            onPress={async () => {
+              await addInvite({
+                name,
+                numberplate,
+                house_no: {
+                  block: house.block,
+                  house: house.house_no,
+                },
+                additional: "",
+              });
+              navigate("Smentry Home", {});
+            }}
             style={{
               backgroundColor: "#4299E1",
               padding: 10,
-
               width: "90%",
               paddingLeft: 25,
               paddingRight: 25,
@@ -125,7 +132,7 @@ const InviteVisitorScreen = () => {
 const styles = StyleSheet.create({
   scene: {
     flex: 1,
-    paddingTop: 60,
+    // paddingTop: 60,
     // alignItems: "center",
     justifyContent: "flex-start",
   },

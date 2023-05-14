@@ -2,7 +2,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-const RequestBox = ({ name, description }: any) => {
+const RequestBox = ({ name, description, object }: any) => {
   return (
     <LinearGradient
       colors={["#1A365D", "#2B6CB0", "#63B3ED", "#4299E1"]}

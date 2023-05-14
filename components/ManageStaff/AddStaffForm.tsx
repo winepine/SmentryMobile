@@ -36,7 +36,7 @@ const AddStaffForm = () => {
           onFocus={() => console.log("Input field focused")}
         />
         {/* <Button title="Pick an image from camera roll" onPress={pickImage} /> */}
-        <ImagePicker />
+        {/* <ImagePicker /> */}
       </View>
     </ScreenContainer>
   );
